@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CompanyI } from '@/utils/interfaces';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { CompanyI } from "@/utils/interfaces";
 
 interface CompaniesState {
   allCompanies: CompanyI[];
@@ -12,7 +12,7 @@ const initialState: CompaniesState = {
 };
 
 const companiesSlice = createSlice({
-  name: 'companies',
+  name: "companies",
   initialState,
   reducers: {
     setCompanies(state, action: PayloadAction<CompanyI[]>) {

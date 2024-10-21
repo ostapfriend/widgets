@@ -1,7 +1,7 @@
 type MosaicTileT =
   | string
   | {
-      direction: 'row' | 'column';
+      direction: "row" | "column";
       first: MosaicTileT;
       second: MosaicTileT;
       splitPercentage?: number;

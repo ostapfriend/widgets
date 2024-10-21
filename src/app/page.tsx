@@ -1,11 +1,11 @@
-'use client';
-import React, { Suspense } from 'react';
-import { Mosaic } from 'react-mosaic-component';
-import useCompanies from '@/hooks/useCompanies';
-import { MosaicTileSkeleton } from '@/components';
-import { CompanyI } from '@/utils/interfaces';
+"use client";
+import React, { Suspense } from "react";
+import { Mosaic } from "react-mosaic-component";
+import useCompanies from "@/hooks/useCompanies";
+import { MosaicTileSkeleton } from "@/components";
+import { CompanyI } from "@/utils/interfaces";
 
-const MosaicTile = React.lazy(() => import('@/components/MosaicTile'));
+const MosaicTile = React.lazy(() => import("@/components/MosaicTile"));
 
 export default function Home() {
   const { allCompanies, initialMosaicValue, handleReplaceCompany } =

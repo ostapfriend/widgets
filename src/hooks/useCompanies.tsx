@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { CompanyI } from '@/utils/interfaces';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { CompanyI } from "@/utils/interfaces";
 import {
   addCompany,
   addThreeCompanies,
   replaceCompany,
   setCompanies,
-} from '@/store/slices/companiesSlice';
-import { RootState } from '@/store';
-import { MosaicTileT } from '@/utils/types';
+} from "@/store/slices/companiesSlice";
+import { RootState } from "@/store";
+import { MosaicTileT } from "@/utils/types";
 
 /**
  * @useCompanies
@@ -36,12 +36,12 @@ const useCompanies = () => {
   );
 
   const initialMosaicValue: MosaicTileT = {
-    direction: 'row',
-    first: uniqueTickers[0] || 'Loading 1',
+    direction: "row",
+    first: uniqueTickers[0] || "Loading 1",
     second: {
-      direction: 'column',
-      first: uniqueTickers[1] || 'Loading 2',
-      second: uniqueTickers[2] || 'Loading 3',
+      direction: "column",
+      first: uniqueTickers[1] || "Loading 2",
+      second: uniqueTickers[2] || "Loading 3",
     },
     splitPercentage: 40,
   };
@@ -49,9 +49,9 @@ const useCompanies = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/companies');
+        const response = await fetch("/api/companies");
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const data: CompanyI[] = await response.json();
 
@@ -68,7 +68,7 @@ const useCompanies = () => {
           ),
         );
       } catch (error) {
-        console.error('Error fetching companies:', error);
+        console.error("Error fetching companies:", error);
       }
     };
 

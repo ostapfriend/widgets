@@ -1,5 +1,5 @@
-import React from 'react';
-import { CompanyI } from '@/utils/interfaces';
+import React from "react";
+import { CompanyI } from "@/utils/interfaces";
 
 interface CompanySelectProps {
   companies: CompanyI[];

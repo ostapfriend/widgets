@@ -1,8 +1,8 @@
-import React from 'react';
-import { CompanyI } from '@/utils/interfaces';
-import { MosaicTileSkeleton } from './MosaicTileSkeleton';
-import Link from 'next/link';
-import { CompanySelect } from './CompanySelect';
+import React from "react";
+import { CompanyI } from "@/utils/interfaces";
+import { MosaicTileSkeleton } from "./MosaicTileSkeleton";
+import Link from "next/link";
+import { CompanySelect } from "./CompanySelect";
 
 interface MosaicTileProps {
   currentCompany: CompanyI;
@@ -48,7 +48,7 @@ const MosaicTile: React.FC<MosaicTileProps> = ({
       </p>
 
       <p className="text-md mt-1">
-        <strong>Company Site:</strong>{' '}
+        <strong>Company Site:</strong>{" "}
         <Link href={`https://${currentCompany.company_url}`} target="_blank">
           <span className="text-blue-500 underline hover:text-blue-700 transition duration-200">
             {currentCompany.company_url}

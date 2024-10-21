@@ -1,11 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { combineReducers } from 'redux';
-import companiesReducer from './slices/companiesSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { combineReducers } from "redux";
+import companiesReducer from "./slices/companiesSlice";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
 };
 
