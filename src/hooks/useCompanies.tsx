@@ -31,25 +31,31 @@ const useCompanies = () => {
     (state: RootState) => state.companies,
   );
 
-  const uniqueTickers = useMemo(() => {
-    if (!selectedCompanies || selectedCompanies?.length === 0) return [];
-    
-    return Array.from(
-      new Set(selectedCompanies.map((c: CompanyI) => c.ticker)),
-    )
+  const initialMosaicValue = useMemo(() => {
+    if (!selectedCompanies || selectedCompanies.length === 0) return [];
+  
+    const uniqueTickers = Array.from(new Set(selectedCompanies.map((c: CompanyI) => c.ticker)));
+  
+    const loadingPlaceholder = (index: number) => `Loading ${index + 1}`;
+  
+    const [firstTicker, secondTicker, thirdTicker] = [
+      uniqueTickers[0] || loadingPlaceholder(0),
+      uniqueTickers[1] || loadingPlaceholder(1),
+      uniqueTickers[2] || loadingPlaceholder(2),
+    ];
+  
+    return {
+      direction: "row",
+      first: firstTicker,
+      second: {
+        direction: "column",
+        first: secondTicker,
+        second: thirdTicker,
+      },
+      splitPercentage: 40,
+    } as MosaicTileT;
   }, [selectedCompanies]);
-
-  const initialMosaicValue: MosaicTileT = {
-    direction: "row",
-    first: uniqueTickers[0] || "Loading 1",
-    second: {
-      direction: "column",
-      first: uniqueTickers[1] || "Loading 2",
-      second: uniqueTickers[2] || "Loading 3",
-    },
-    splitPercentage: 40,
-  };
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
