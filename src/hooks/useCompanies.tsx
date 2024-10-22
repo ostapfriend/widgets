@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CompanyI } from "@/utils/interfaces";
 import {
@@ -31,9 +31,13 @@ const useCompanies = () => {
     (state: RootState) => state.companies,
   );
 
-  const uniqueTickers = Array.from(
-    new Set(selectedCompanies.map((c: CompanyI) => c.ticker)),
-  );
+  const uniqueTickers = useMemo(() => {
+    if (!selectedCompanies || selectedCompanies?.length === 0) return [];
+    
+    return Array.from(
+      new Set(selectedCompanies.map((c: CompanyI) => c.ticker)),
+    )
+  }, [selectedCompanies]);
 
   const initialMosaicValue: MosaicTileT = {
     direction: "row",
