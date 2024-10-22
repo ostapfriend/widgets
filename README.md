@@ -1,5 +1,3 @@
-Вибач за це! Ось весь текст у одному блоці:
-
 # Widgets
 
 This project is built with [Next.js](https://nextjs.org/) and TypeScript. It also includes state management with Redux, UI components from Blueprint.js, and uses Tailwind CSS for styling.
